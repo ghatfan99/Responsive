@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box; /* forbidden the scrolling*/
+}
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+}
+.main-container {
+    min-height: 100vh; /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 44px; /* height of your footer */
+   }
+.header {
+    position: absolute;
+    height: 44px;
+    width: 100%;
+    background-color: rgb(119, 0, 255);
+    z-index: 4; /* must be higher than .side-nav*/
+}
+.footer {
+    position: absolute;
+    z-index: 2;
+    height: 44px;
+    bottom: 0;
+    background-color:rgb(255, 0, 55);
+    width: 100%;
+    margin-left: 80px;
+    padding: 10px;
+    text-align: center;
+}
+
+.main-content{
+    position: absolute;
+    padding: 60px 20px;
+    padding-bottom: 44px;
+}
+.side-nav{
+    padding-top: 44px;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #666666;
+    z-index: 3;
+}
+
+.side-nav ul {
+    list-style: none; /* getrid of bullets infornt of li*/
+    padding: 0;
+    margin: 0;
+}
+
+.side-nav ul li {
+    padding: 20px 10px;
+    border-bottom: 1px solid #333333;
+}
+
+.side-nav ul li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.side-nav ul li a i{ /* if we have i elements in ul we can use .side-nav ul i */
+    color: #333333;
+    padding-right: 5px;
+}
+
+/* for devices greater than 600 px*/
+@media screen and (min-width: 600px){
+    .side-nav {
+        width: 80px;
+    }
+    .side-nav ul li {
+        text-align: center;
+    }
+    /* get red of names beside icons and keep only icons */
+    .side-nav ul li a span:nth-child(2) {
+        display: none;
+    }
+    .side-nav ul li i {
+        font-size: 26px;
+    }
+     /* viewing the main content*/
+     .main-content {
+        margin-left: 80px;
+    }
+}
+
+/* for devices greater than 1000 px*/
+@media screen and (min-width: 1000px){
+    .side-nav {
+        width: 200px;
+    }
+    .side-nav ul li {
+        text-align: left;
+    }
+    /* get red of names beside icons and keep only icons */
+    .side-nav ul li a span:nth-child(2) {
+        display: inline;
+    }
+    .side-nav ul li i {
+        font-size: 16px;
+    }
+    /* viewing the main content*/
+    .main-content {
+        margin-left: 200px;
+    }
+    .footer {
+        margin-left: 200px;
+    }
+}
